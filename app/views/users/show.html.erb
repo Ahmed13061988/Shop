@@ -1,0 +1,9 @@
+<h1>Shop</h1>
+<h2>Welcome to <%= @user.username%>'s homepage! </h2>
+
+<h3>Here are the shops reviewed by <%=@user.username%>:</h3>
+<ul>
+  <% @user.reviewed_shops.each do |r|%>
+  <li> <%= link_to r.name_and_category, show_path(r)%> </li>
+  <% end %>
+</ul>

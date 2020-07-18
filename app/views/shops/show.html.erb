@@ -1,0 +1,15 @@
+<h1><%= @shop.name%>  </h1>
+
+
+<h2> <%= @shop.category_name %> </h2>
+<div>
+  <p><%= @shop.price_range %></p>
+  <p><%= @shop.address %></p>
+</div>
+
+
+<%= link_to "Edit #{@shop.name}", edit_shop_path(@shop) if @shop.user == current_user%>
+
+<br></br>
+
+<%= link_to "See all Reviews", shop_reviews_path(@shop) %>

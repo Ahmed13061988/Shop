@@ -1,0 +1,35 @@
+<%=  display_header(@review)%> 
+<%= render partial: 'layouts/errors', locals: {object: @review}  %>
+
+
+
+<%= form_for(@review) do |f|%>
+  <% if params[:shop_id] %>
+    <%= f.hidden_field :shop_id %>
+  <% else %>
+    <div>
+      <%= f.label :shop_id, "Select a Shop" %>
+      <%= f.collection_select :shop_id, Shop.alpha, :id, :name_and_category, include_blank: true %>
+    </div>
+  <% end %>
+  <div>
+    <%= f.label :stars %>
+    <%= f.number_field :stars, min:0, max:5 %>
+  </div>
+  <br>
+  <div>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </div>
+  <br>
+  <div>
+    <%= f.label :content %>
+    <%= f.text_area :content, size: "25x10" %>
+  </div>
+  <br>
+
+
+
+  <%= f.submit %>
+
+<% end %>

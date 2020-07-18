@@ -1,0 +1,32 @@
+<%= render partial: 'layouts/errors', locals: {object: @shop}  %>
+<%= form_for(@shop) do |f|%> 
+    <div>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+    </div>
+    
+    <div>
+      <%= f.label :price_range %> 
+      <%= f.select :price_range,options_for_select(["$", "$$", "$$$"]), include_blank: true %>   
+    </div>
+    <div>
+      <%= f.label :address %>
+      <%= f.text_field :address %> 
+    </div>
+
+    <p> Select a Category: </p>
+    <div>
+      <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: 'Select One'%>
+  
+    </div>
+  
+    <p> Or create a new Category: </p>
+    <div>
+      <%= f.fields_for :category do |c| %>
+        <%= c.label :name %>
+        <%= c.text_field :name %>
+      <% end %> 
+    </div> 
+    <br>
+    <%= f.submit %>
+  <% end %>
