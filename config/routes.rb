@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new' 
   post '/signup' => 'users#create' 
   delete '/logout' => 'sessions#destroy'
-  get '/most_popular' => 'restaurants#most_popular' 
+  get '/most_popular' => 'shops#most_popular' 
 
   get '/auth/:provider/callback' => 'sessions#create'
  
