@@ -12,7 +12,7 @@ Rails.application.routes.draw do
  
   
   resources :reviews
-  resources :restaurants do
+  resources :shops do
     resources :reviews, only: [:new, :index]
   end
 

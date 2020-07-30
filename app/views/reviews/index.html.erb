@@ -1,5 +1,5 @@
 <% if @shop %>
-  <h1>Reviews for <%= @shop.name %> - <%= @shop.category %></h1>
+  <h1>Reviews for <%= @shop.name %> 
 <% else %>
   <h1>All the Reviews </h1>
 <% end %>
@@ -13,3 +13,11 @@
 
 <% end %>
 </ul>
+
+<button onclick="goBack()">Go Back</button>
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>

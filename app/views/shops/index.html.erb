@@ -10,3 +10,11 @@
   <%= link_to "Write a review", new_shop_review_path(r.id) %> 
   <p><%= r.address %></p>
   <% end %>
+
+  <button onclick="goBack()">Go Back</button>
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>

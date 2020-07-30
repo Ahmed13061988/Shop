@@ -4,6 +4,15 @@
 <h3>Here are the shops reviewed by <%=@user.username%>:</h3>
 <ul>
   <% @user.reviewed_shops.each do |s|%>
-  <li> <%= link_to s.name_and_category, show_path(s)%> </li>
+  <li> <%= link_to s.name_and_category, shop_path(s)%> </li>
   <% end %>
 </ul>
+
+
+<button onclick="goBack()">Go Back</button>
+
+<script>
+function goBack() {
+  window.history.back();
+}
+</script>
