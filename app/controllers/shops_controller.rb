@@ -47,6 +47,11 @@ class ShopsController < ApplicationController
         render :edit
       end 
     end 
+    def destroy
+      @shop= Shop.find(params[:id])
+      @shop.destroy
+      redirect_to shop_path(@shop)
+     end
 
     def most_popular 
       @shops = Shop.most_popular 

@@ -8,7 +8,9 @@
 </div>
 
 
-<%= link_to "Edit #{@shop.name}", edit_shop_path(@shop) if @shop.user == current_user%>
+<%= link_to "Edit #{@shop.name}", edit_shop_path(@shop) if @shop.user == current_user%><br>
+<%= link_to "Delete #{@shop.name}", {:controller => "shops", :action => 'destroy'}, :method => :delete if @shop.user == current_user %><br><br
+
 
 <br></br>
 
