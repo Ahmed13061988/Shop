@@ -26,7 +26,7 @@ class Shop < ApplicationRecord
     def not_a_duplicate
         # if there is already a shop with this name and address 
         shop = Shop.find_by(name: name, address: address) 
-        if  shop != self
+        if  !!shop && shop != self
           errors.add(:name, 'has already been added for that address')
         end
     end 
