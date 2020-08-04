@@ -47,6 +47,7 @@ class ShopsController < ApplicationController
         render :edit
       end 
     end 
+    
     def destroy
       @shop= Shop.find(params[:id])
       @shop.destroy

@@ -7,5 +7,5 @@ class Review < ApplicationRecord
     validates :content, length: {maximum: 250} 
     validates :stars, numericality: {only_integer: true, in: 1...5 } # among 1 and 5 
     
-    validates :shop, uniqueness: { scope: :user, message: "has already been reviewed by you"  }
+    validates :shop, uniqueness: { scope: :user, message: "has already been reviewed by you"  } # you can review the shop just one time 
 end

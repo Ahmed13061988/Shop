@@ -8,7 +8,7 @@
 <% @reviews.each do |review| %>
 
   <li>
-  <%= review.shop.name%>: <%= link_to review.title, review_path(review)%> - <%= review.stars%> 
+  <%= review.shop.name %>: <%= link_to review.title, review_path(review)%> - <%= review.stars%> 
   </li> <br>
 
 <% end %>

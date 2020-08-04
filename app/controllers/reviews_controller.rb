@@ -23,9 +23,12 @@ class ReviewsController < ApplicationController
     end
     
     def index
+      #binding.pry
     if @shop = Shop.find_by_id(params[:shop_id])
           @reviews = @shop.reviews
+          
         else
+          #binding.pry
           @reviews = Review.all
         end
       end
