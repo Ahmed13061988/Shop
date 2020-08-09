@@ -1,4 +1,7 @@
 <h1>Welcome to the Shop </h1>
+<% if logged_in?%>
+<h2>  You are logged in </h2>
+<% end %>
 
 <%= link_to "Log in", login_path %> 
 
@@ -6,6 +9,6 @@ OR
 
 <%= link_to "Sign up", signup_path %>  
 
-OR 
+<%# OR 
 
-<%= link_to "Sign in with Github", '/auth/:provider/callback' %>
+<%= link_to "Sign in with Github", '/auth/:provider/callback' %> 

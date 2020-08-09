@@ -4,4 +4,5 @@
 <%= link_to "Add a Review", new_review_path %> |
 <%= link_to "All Reviews", reviews_path %> |
 <%= link_to "All Categories", categories_path %> |
-<%= link_to "Home", user_path(:user_id)%> 
+<%= link_to "Profile", user_path(current_user.id)%>  
+
