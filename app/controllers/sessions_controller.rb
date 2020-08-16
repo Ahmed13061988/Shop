@@ -10,11 +10,11 @@ class SessionsController < ApplicationController
   
       def create
         # byebug
-        if params[:provider] == 'github'
-          @user = User.create_by_github_omniauth(auth)
-          session[:user_id] = @user.id
-          redirect_to user_path(@user)
-        else
+        # if params[:provider] == 'google'
+        #   @user = User.create_with_omniauth(auth)
+        #   session[:user_id] = @user.id
+        #   redirect_to user_path(@user)
+        # else
     
       
           @user = User.find_by(username: params[:user][:username])
@@ -26,13 +26,16 @@ class SessionsController < ApplicationController
             flash[:error] = "Sorry, login info was incorrect. Please try again."
             redirect_to login_path
           end
-        end
+        # end
       end
   
   
-      def omniauth
-        @user = User.create_by_github_omniauth(auth)
-    
+      def google_omniauth_create
+        omniauth = request.env['omniauth.auth']
+        @user = User.create(email: omniauth['info']['email']) do |u|
+        u.username = omniauth['info']['email']
+        u.password = SecureRandom.hex
+        end 
         session[:user_id] = @user.id
         redirect_to user_path(@user)
       end
@@ -44,8 +47,8 @@ class SessionsController < ApplicationController
     
       private
     
-        def auth
-          request.env['omniauth.auth']
-        end
+        # def auth
+        #   request.env['omniauth.auth']
+        # end
      
       end
