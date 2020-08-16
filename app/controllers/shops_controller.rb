@@ -54,9 +54,9 @@ class ShopsController < ApplicationController
       redirect_to shop_path(@shop)
      end
 
-    def most_popular 
-      @shops = Shop.most_popular 
-    end 
+    # def most_popular 
+    #   @shops = Shop.most_popular 
+    # end 
 
     private 
 
