@@ -1,24 +1,30 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Shop
+Shop is an app that will help to add a store and put a review for it, any other user can review the store you added. 
 
-Things you may want to cover:
+Prerequisites
+The setup steps expect the following tools to be installed on the system.
 
-* Ruby version
+Github
+Ruby 2.4.0
+Rails 5.0.2
 
-* System dependencies
+Clone the repository
 
-* Configuration
+git clone https://github.com/Ahmed13061988/Shop
+cd shop
 
-* Database creation
+Starting the Server
+You can start the rails server using the following command:
 
-* Database initialization
+  rails s
+Visit the site at: http://localhost:3000
 
-* How to run the test suite
+License
+Distributed under the MIT License. See LICENSE for more information.
 
-* Services (job queues, cache servers, search engines, etc.)
+Usage 
+You can Sign up or Log in if you have already an account. 
+You can sign up using your google account by hitting the button "Signup with Google". 
 
-* Deployment instructions
-
-* ...

@@ -10,23 +10,16 @@ class SessionsController < ApplicationController
       end 
   
       def create
-        # byebug
-        # if params[:provider] == 'google'
-        #   @user = User.create_with_omniauth(auth)
-        #   session[:user_id] = @user.id
-        #   redirect_to user_path(@user)
-        # else
-    
-      
           @user = User.find_by(username: params[:user][:username])
       
           if @user && @user.authenticate(params[:user][:password])
             session[:user_id] = @user.id 
             redirect_to user_path(@user)
           else
-            redirect_to login_path
+            #  byebug
+            
+            redirect_to login_path notice: "Invalid Input!"
           end
-        # end
       end
   
   
