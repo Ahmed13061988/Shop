@@ -1,10 +1,14 @@
 <h1>Shop</h1>
-<h2>Welcome to <%= @user.username%>'s Profile! </h2>
+<% if @user != current_user %>
+<h1><%= "Nice try ;), but You are not allowed to be here!"%></h1>
+<% else %>
+<h2>Welcome to <%= @user.username %>'s Profile! </h2>
 
-<h3>Here are the shops reviewed by <%=@user.username%>:</h3>
+<h3>Here are the shops reviewed by <%=@user.username %>:</h3>
 <ul>
   <% @user.reviewed_shops.each do |s|%>
   <li> <%= link_to s.name_and_category, shop_path(s)%> </li>
+  <% end %>
   <% end %>
 </ul>
 
