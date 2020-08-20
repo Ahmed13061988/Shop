@@ -13,6 +13,3 @@
  *= require_tree .
  *= require_self
  */
- div.test:hover {
-    overflow: visible;
-  }

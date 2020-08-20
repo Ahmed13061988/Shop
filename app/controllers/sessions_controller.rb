@@ -5,11 +5,11 @@ class SessionsController < ApplicationController
      end 
   
   
-      def new  
+     def new  
         @user = User.new
-      end 
+     end 
   
-      def create
+    def create
           @user = User.find_by(username: params[:user][:username])
       
           if @user && @user.authenticate(params[:user][:password])
@@ -17,13 +17,13 @@ class SessionsController < ApplicationController
             redirect_to user_path(@user)
           else
             #  byebug
-            
+            flash[:errors] = ["Incorrect Username or Password"]
             redirect_to login_path notice: "Invalid Input!"
           end
-      end
+    end
   
   
-      def google_omniauth_create
+    def google_omniauth_create
         omniauth = request.env['omniauth.auth']['info']
         @user = User.find_or_create_by(email: omniauth['email']) do |u|
         u.username = omniauth["name"]
@@ -31,12 +31,12 @@ class SessionsController < ApplicationController
         end 
         session[:user_id] = @user.id
         redirect_to user_path(@user)
-      end
+    end
   
-      def destroy 
+    def destroy 
         session.clear  
         redirect_to '/'
-      end 
+    end 
     
       private
     
