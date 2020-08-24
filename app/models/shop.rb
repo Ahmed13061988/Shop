@@ -32,7 +32,7 @@ class Shop < ApplicationRecord
     end 
 
     def category_name
-        category.try(:name) # We are doing that since we don't know here if category is nil value.
+        category.try(:name) # We are doing thatin order to ovoid the nil return.
       end
     
       def name_and_category

@@ -8,8 +8,16 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
+ 
 
   <body>
+   <% if flash[:errors] %>
+      <ul style="color: red;">
+        <% flash[:errors].each do |error| %>
+        <li><%= error %></li>
+        <% end %>
+      </ul>
+    <% end %>
    <div><%= render_nav_bar %></div>
     <%= yield %>
   </body>
